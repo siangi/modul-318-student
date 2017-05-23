@@ -142,27 +142,28 @@ namespace SwissTransport.WindowsClient
 
             foreach (StationBoard Board in BoardRoot.Entries)
             {
-                _View.AddNewConnection(Board.Name, Board.To, Board.Stop.Departure.ToString(), "", "", "", "");
+                _View.AddNewConnection(Board.Name, Board.To, Board.Stop.Departure.ToString(), "",
+                    "", BoardRoot.Station.Name, "");
             }
         }
 
         /// <summary>
         /// Queries the API for Station Suggestions and Sets them on the View
         /// </summary>
-        /// <param name="Query">Query string</param>
-        /// <param name="StationKind">Which Stationkind needs the Suggestions, important
+        /// <param name="query">Query string</param>
+        /// <param name="stationKind">Which Stationkind needs the Suggestions, important
         /// for the View</param>
-        public void StationQuery(string Query, StationKinds StationKind)
+        public void StationQuery(string query, StationKinds stationKind)
         {
-            List<Station> QueriedStations = _Transport.GetStations(Query).StationList;
+            List<Station> QueriedStations = _Transport.GetStations(query).StationList;
             List<string> StationStrings = new List<string>();
-            if (StationKind == StationKinds.To)
+            if (stationKind == StationKinds.To)
                 StationStrings.Add("Alle Richtungen");
 
             foreach (Station TempStation in QueriedStations)
                 StationStrings.Add(TempStation.Name);
 
-             _View.SetPossibleStations(StationStrings, StationKind);
+             _View.SetPossibleStations(StationStrings, stationKind);
         }
 
         private string FormatArrivalDeparture(string value)

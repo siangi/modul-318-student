@@ -33,9 +33,9 @@
             this.mItemClear = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlOptions = new System.Windows.Forms.Panel();
             this.btnShowConnections = new System.Windows.Forms.Button();
-            this.DTPickerTime = new System.Windows.Forms.DateTimePicker();
+            this.dTPickerTime = new System.Windows.Forms.DateTimePicker();
             this.lblTime = new System.Windows.Forms.Label();
-            this.DTPickerDate = new System.Windows.Forms.DateTimePicker();
+            this.dTPickerDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
             this.cmbTo = new System.Windows.Forms.ComboBox();
             this.cmbFrom = new System.Windows.Forms.ComboBox();
@@ -58,6 +58,7 @@
             // 
             // MenuMain
             // 
+            this.MenuMain.BackColor = System.Drawing.SystemColors.GrayText;
             this.MenuMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MenuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.auswahlToolStripMenuItem});
@@ -66,7 +67,7 @@
             this.MenuMain.Size = new System.Drawing.Size(698, 28);
             this.MenuMain.TabIndex = 0;
             this.MenuMain.TabStop = true;
-            this.MenuMain.Text = "MenuMain";
+            this.MenuMain.Text = "menuMain";
             // 
             // auswahlToolStripMenuItem
             // 
@@ -87,11 +88,12 @@
             // 
             // pnlOptions
             // 
+            this.pnlOptions.BackColor = System.Drawing.SystemColors.Control;
             this.pnlOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlOptions.Controls.Add(this.btnShowConnections);
-            this.pnlOptions.Controls.Add(this.DTPickerTime);
+            this.pnlOptions.Controls.Add(this.dTPickerTime);
             this.pnlOptions.Controls.Add(this.lblTime);
-            this.pnlOptions.Controls.Add(this.DTPickerDate);
+            this.pnlOptions.Controls.Add(this.dTPickerDate);
             this.pnlOptions.Controls.Add(this.lblDate);
             this.pnlOptions.Controls.Add(this.cmbTo);
             this.pnlOptions.Controls.Add(this.cmbFrom);
@@ -106,22 +108,24 @@
             // btnShowConnections
             // 
             this.btnShowConnections.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowConnections.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnShowConnections.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowConnections.Location = new System.Drawing.Point(602, 107);
             this.btnShowConnections.Name = "btnShowConnections";
             this.btnShowConnections.Size = new System.Drawing.Size(84, 28);
             this.btnShowConnections.TabIndex = 4;
             this.btnShowConnections.Text = "Anzeigen";
-            this.btnShowConnections.UseVisualStyleBackColor = true;
+            this.btnShowConnections.UseVisualStyleBackColor = false;
             this.btnShowConnections.Click += new System.EventHandler(this.btnShowConnections_Click);
             // 
-            // DTPickerTime
+            // dTPickerTime
             // 
-            this.DTPickerTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DTPickerTime.Location = new System.Drawing.Point(260, 78);
-            this.DTPickerTime.Name = "DTPickerTime";
-            this.DTPickerTime.ShowUpDown = true;
-            this.DTPickerTime.Size = new System.Drawing.Size(108, 22);
-            this.DTPickerTime.TabIndex = 3;
+            this.dTPickerTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dTPickerTime.Location = new System.Drawing.Point(260, 78);
+            this.dTPickerTime.Name = "dTPickerTime";
+            this.dTPickerTime.ShowUpDown = true;
+            this.dTPickerTime.Size = new System.Drawing.Size(108, 22);
+            this.dTPickerTime.TabIndex = 3;
             // 
             // lblTime
             // 
@@ -132,13 +136,13 @@
             this.lblTime.TabIndex = 6;
             this.lblTime.Text = "Uhrzeit";
             // 
-            // DTPickerDate
+            // dTPickerDate
             // 
-            this.DTPickerDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPickerDate.Location = new System.Drawing.Point(71, 78);
-            this.DTPickerDate.Name = "DTPickerDate";
-            this.DTPickerDate.Size = new System.Drawing.Size(108, 22);
-            this.DTPickerDate.TabIndex = 2;
+            this.dTPickerDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dTPickerDate.Location = new System.Drawing.Point(71, 78);
+            this.dTPickerDate.Name = "dTPickerDate";
+            this.dTPickerDate.Size = new System.Drawing.Size(108, 22);
+            this.dTPickerDate.TabIndex = 2;
             // 
             // lblDate
             // 
@@ -152,6 +156,7 @@
             // cmbTo
             // 
             this.cmbTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbTo.FormattingEnabled = true;
             this.cmbTo.Items.AddRange(new object[] {
             "Alle Richtungen"});
@@ -165,6 +170,7 @@
             // 
             // cmbFrom
             // 
+            this.cmbFrom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbFrom.FormattingEnabled = true;
             this.cmbFrom.Location = new System.Drawing.Point(98, 9);
             this.cmbFrom.Name = "cmbFrom";
@@ -176,6 +182,7 @@
             // 
             this.lblTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTo.AutoSize = true;
+            this.lblTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblTo.Location = new System.Drawing.Point(364, 12);
             this.lblTo.Name = "lblTo";
             this.lblTo.Size = new System.Drawing.Size(79, 17);
@@ -223,7 +230,7 @@
             // clmnHFromPlatform
             // 
             this.clmnHFromPlatform.Text = "Gleis";
-            this.clmnHFromPlatform.Width = 100;
+            this.clmnHFromPlatform.Width = 86;
             // 
             // clmnHDeparture
             // 
@@ -248,10 +255,11 @@
             // clmnHToPlatform
             // 
             this.clmnHToPlatform.Text = "Gleis";
-            this.clmnHToPlatform.Width = 100;
+            this.clmnHToPlatform.Width = 64;
             // 
             // pnlConnectionsAndBoard
             // 
+            this.pnlConnectionsAndBoard.BackColor = System.Drawing.SystemColors.Control;
             this.pnlConnectionsAndBoard.Controls.Add(this.lblConnections);
             this.pnlConnectionsAndBoard.Controls.Add(this.lVConnections);
             this.pnlConnectionsAndBoard.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -307,8 +315,8 @@
         private System.Windows.Forms.Label lblTo;
         private System.Windows.Forms.Label lblFrom;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.DateTimePicker DTPickerDate;
-        private System.Windows.Forms.DateTimePicker DTPickerTime;
+        private System.Windows.Forms.DateTimePicker dTPickerDate;
+        private System.Windows.Forms.DateTimePicker dTPickerTime;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Button btnShowConnections;
         private System.Windows.Forms.ListView lVConnections;

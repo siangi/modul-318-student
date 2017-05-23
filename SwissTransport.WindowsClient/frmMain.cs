@@ -15,30 +15,30 @@ namespace SwissTransport.WindowsClient
         public frmMain()
         {
             InitializeComponent();
-            DTPickerDate.MinDate = System.DateTime.Today;
-            DTPickerTime.MinDate = System.DateTime.Now;
+            dTPickerDate.MinDate = System.DateTime.Today;
+            dTPickerTime.MinDate = System.DateTime.Now;
         }
         
         /// <summary>
         /// Adds a new Row to lVConnections, for further documentation see ITransportView
         /// </summary>
-        public void AddNewConnection(string from, string to, string Departure, string Arrival, string toPlatform, 
-            string fromPlatform, string Duration)
+        public void AddNewConnection(string from, string to, string departure, string arrival, string toPlatform, 
+            string fromPlatform, string duration)
         {
-            if (isStationboard())
-                lblConnections.Text = "Abfahrtsplan für Station: " + cmbFrom.Text;
+            if (IsStationboard())
+                lblConnections.Text = "Abfahrtsplan für Station: " + fromPlatform;
             else
             {
                 lblConnections.Text = "Verbindungen von " + from + " nach: " + to + " ab: "
-                    + DTPickerDate.Text + " " + DTPickerTime.Text;
+                    + dTPickerDate.Text + " " + dTPickerTime.Text;
             }
 
             ListViewItem Item = new ListViewItem(from);
             Item.SubItems.Add(fromPlatform);
-            Item.SubItems.Add(Departure);
+            Item.SubItems.Add(departure);
             Item.SubItems.Add(to);
-            Item.SubItems.Add(Duration);
-            Item.SubItems.Add(Arrival);
+            Item.SubItems.Add(duration);
+            Item.SubItems.Add(arrival);
             Item.SubItems.Add(toPlatform);
 
             lVConnections.Items.Add(Item);
@@ -75,10 +75,10 @@ namespace SwissTransport.WindowsClient
         /// new suggestions
         /// </summary>
         /// <param name="value">the strings which will be added to the combobox</param>
-        /// <param name="StationKind">Which combobox will be filled</param>
-        public void SetPossibleStations(List<string> value, StationKinds StationKind)
+        /// <param name="stationKind">Which combobox will be filled</param>
+        public void SetPossibleStations(List<string> value, StationKinds stationKind)
         {
-            if (StationKind == StationKinds.From)
+            if (stationKind == StationKinds.From)
             {
                 cmbFrom.Items.Clear();
                 cmbFrom.Items.AddRange(value.ToArray());
@@ -110,7 +110,7 @@ namespace SwissTransport.WindowsClient
             }
 
             lVConnections.Items.Clear();
-            if (isStationboard())
+            if (IsStationboard())
                 PrepareForStationBoard();
             else
                 PrepareForConnections();
@@ -162,12 +162,12 @@ namespace SwissTransport.WindowsClient
 
         public string GetDate()
         {
-            return DTPickerDate.Text;
+            return dTPickerDate.Text;
         }
 
         public string GetTime()
         {
-            return DTPickerTime.Text;
+            return dTPickerTime.Text;
         }
 
         private void mItemClear_Click(object sender, EventArgs e)
@@ -177,25 +177,25 @@ namespace SwissTransport.WindowsClient
             cmbTo.Items.Clear();
             cmbFrom.Text = "";
             cmbTo.Text = "";
-            DTPickerDate.Value = System.DateTime.Today;
-            DTPickerTime.Value = System.DateTime.Now;
+            dTPickerDate.Value = System.DateTime.Today;
+            dTPickerTime.Value = System.DateTime.Now;
         }
 
         private void cmbTo_TextUpdate(object sender, EventArgs e)
         {
-            if (isStationboard())
+            if (IsStationboard())
             {
-                DTPickerTime.Enabled = false;
-                DTPickerDate.Enabled = false;
+                dTPickerTime.Enabled = false;
+                dTPickerDate.Enabled = false;
             }
             else
             {
-                DTPickerTime.Enabled = true;
-                DTPickerDate.Enabled = true;
+                dTPickerTime.Enabled = true;
+                dTPickerDate.Enabled = true;
             }
         }
 
-        private bool isStationboard()
+        private bool IsStationboard()
         {
             return cmbTo.Text == "Alle Richtungen";
         }

@@ -234,3 +234,5 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+/SwissTransport.Release/Application Files/SwissTransport.WindowsClient_1_0_0_2
+/SwissTransport.Release/Application Files/SwissTransport.WindowsClient_1_0_0_2/Newtonsoft.Json.dll.deploy
