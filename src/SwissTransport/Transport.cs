@@ -24,7 +24,8 @@ namespace SwissTransport
 
         public StationBoardRoot GetStationBoard(string station, string id)
         {
-            var request = CreateWebRequest("http://transport.opendata.ch/v1/stationboard?Station=" + station + "&id=" + id);
+            var request = CreateWebRequest("http://transport.opendata.ch/v1/stationboard?Station=" + station 
+                + "&id=" + id + "&limit=50");
             var response = request.GetResponse();
             var responseStream = response.GetResponseStream();
 
@@ -39,9 +40,10 @@ namespace SwissTransport
             return null;
         }
 
-        public Connections GetConnections(string fromStation, string toStattion)
+        public Connections GetConnections(string fromStation, string toStation, string date, string time)
         {
-            var request = CreateWebRequest("http://transport.opendata.ch/v1/connections?from=" + fromStation + "&to=" + toStattion);
+            var request = CreateWebRequest("http://transport.opendata.ch/v1/connections?from=" + fromStation 
+                + "&to=" + toStation + "&date=" + date + "&time=" + time);
             var response = request.GetResponse();
             var responseStream = response.GetResponseStream();
 
